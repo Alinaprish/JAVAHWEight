@@ -29,4 +29,57 @@ public class StatisticsServiceTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void findMaxZero() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        long expected = 0;
+
+        long actual = service.findMax(incomesInBillions);
+
+        assertEquals(expected, actual);
+
+    }
+
+
+    @Test
+    void findMaxOneValue() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {0};
+        long expected = 0;
+
+        long actual = service.findMax(incomesInBillions);
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void findMaxFractional() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {0, (long) 1.2, 3};
+        long expected = 3;
+
+        long actual = service.findMax(incomesInBillions);
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void findMaxSameValues() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {1, 1, 1};
+        long expected = 1;
+
+        long actual = service.findMax(incomesInBillions);
+
+        assertEquals(expected, actual);
+    }
 }
+
